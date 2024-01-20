@@ -1,7 +1,8 @@
 
 /**/*
 
-!/.gitignore
-!/flake.nix
-!/flake.lock
 !/.envrc
+!/.gitignore
+!/LICENCE
+!/flake.lock
+!/flake.nix
