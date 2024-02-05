@@ -11,10 +11,13 @@
       perSystem = { pkgs, system, ... }: {
         devShells.default = pkgs.mkShell {
           name = "cs128";
+          hardeningDisable = [ "all" ];
           packages = with pkgs; [
-            lld_16
-            llvmPackages_16.clang
+            bear
+            clang-tools_16
+            clang_16
             gnumake
+            lld_16
           ];
         };
       };
