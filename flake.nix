@@ -5,13 +5,13 @@
     default-systems.url = "github:nix-systems/default";
   };
 
-  outputs = inputs @ { self, ... }:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = (import inputs.default-systems);
-      perSystem = { pkgs, ... }: {
+  outputs = inputs @ {self, ...}:
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = import inputs.default-systems;
+      perSystem = {pkgs, ...}: {
         devShells.default = pkgs.mkShell {
           name = "cs128";
-          hardeningDisable = [ "all" ];
+          hardeningDisable = ["all"];
           packages = with pkgs; [
             bear
             clang-tools_16
