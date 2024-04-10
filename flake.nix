@@ -5,10 +5,10 @@
     default-systems.url = "github:nix-systems/default";
   };
 
-  outputs = inputs @ { self, nixpkgs, ... }:
+  outputs = inputs @ { self, ... }:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       systems = (import inputs.default-systems);
-      perSystem = { pkgs, system, ... }: {
+      perSystem = { pkgs, ... }: {
         devShells.default = pkgs.mkShell {
           name = "cs128";
           hardeningDisable = [ "all" ];
@@ -18,6 +18,8 @@
             clang_16
             gnumake
             lld_16
+            catch2
+            catch
           ];
         };
       };
