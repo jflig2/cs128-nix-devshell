@@ -14,12 +14,13 @@
           hardeningDisable = ["all"];
           packages = with pkgs; [
             bear
+            catch
+            catch2
             clang-tools_16
             clang_16
+            gdb
             gnumake
             lld_16
-            catch2
-            catch
           ];
         };
       };
